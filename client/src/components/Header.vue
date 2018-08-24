@@ -6,24 +6,21 @@
     //-   v-btn(flat dark) Browse
     v-spacer
     v-toolbar-items
+      v-btn(flat dark router to='login') Login
       v-btn(flat dark router to='register') Sign Up
 </template>
 
 <script>
-  export default {
-    methods: {
-      // Change the page via a function call
-      navigateTo (route) {
-        this.$router.push(route.name)
-      }
-    },
-    mounted () {
-      // Calling a method
-      // setTimeout(() => {
-      //   this.navigateTo({name: 'register'})
-      // } ,1000)
+export default {
+  methods: {
+    // Change the page via a function call
+    navigateTo (route) {
+      this.$router.push(route.name)
     }
+  },
+  mounted () {
   }
+}
 </script>
 
 <style scoped>
