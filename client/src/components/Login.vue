@@ -3,18 +3,16 @@
     v-container(fluid fill-height)
       v-layout(align-center justify-center)
         v-flex(xs6)
-          .white.elevation-2
-            v-toolbar.cyan(flat dense dark)
-              v-toolbar-title Login
-            div.pl-4.pr-4.pt-2.pb-2
-              v-text-field(name='email', label='email', v-model='email')
-              v-text-field(type='password' name='password', label='password', v-model='password')
-              .error(v-html='error')
-              v-btn.cyan(@click='login' dark) Login
+          Panel(title='Login')
+            v-text-field(name='email', label='email', v-model='email')
+            v-text-field(type='password' name='password', label='password', v-model='password')
+            .error(v-html='error')
+            v-btn.cyan(@click='login' dark) Login
 </template>
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
+import Panel from '@/components/Panel'
 export default {
   name: 'Login',
   data () {
@@ -42,6 +40,9 @@ export default {
         this.error = err.response.data.error
       }
     }
+  },
+  components: {
+    Panel
   },
   mounted () {
     // setTimeout(() => {

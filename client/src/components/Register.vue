@@ -3,19 +3,17 @@
     v-container(fluid fill-height)
       v-layout(align-center justify-center)
         v-flex(xs6)
-          .white.elevation-2
-            v-toolbar.cyan(flat dense dark)
-              v-toolbar-title Register
-            div.pl-4.pr-4.pt-2.pb-2
-              v-text-field(name='email', label='email', v-model='email')
-              v-text-field(type='password' name='password', label='password', v-model='password' autocomplete="new password")
-              v-text-field(type='password' name='password', label='verify password', v-model='verifyPassword' autocomplete="new password")
-              .error(v-html='error')
-              v-btn.cyan(@click='register' dark) Register
+          Panel(title='Register')
+            v-text-field(name='email', label='email', v-model='email')
+            v-text-field(type='password' name='password', label='password', v-model='password' autocomplete="new password")
+            v-text-field(type='password' name='password', label='verify password', v-model='verifyPassword' autocomplete="new password")
+            .error(v-html='error')
+            v-btn.cyan(@click='register' dark) Register
 </template>
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
+import Panel from '@/components/Panel'
 export default {
   name: 'Register',
   data () {
@@ -53,6 +51,9 @@ export default {
         }
       }
     }
+  },
+  components: {
+    Panel
   },
   mounted () {
     // setTimeout(() => {
