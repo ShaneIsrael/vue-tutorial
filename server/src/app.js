@@ -13,6 +13,7 @@ app.use(cors())
 
 require('./routes')(app)
 
+// force: true to drop/reset tables on start
 sequelize.sync()
   .then(() => {
     app.listen(process.env.PORT || 8081)
