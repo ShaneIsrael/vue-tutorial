@@ -6,7 +6,7 @@
           Panel(title='Login')
             v-text-field(name='email', label='email', v-model='email')
             v-text-field(type='password' name='password', label='password', v-model='password')
-            .error(v-html='error')
+            v-alert.ml-2(v-if="error" :value="true" type="error" transition="scale-transition") {{error}}
             v-btn.cyan(@click='login' dark) Login
 </template>
 
